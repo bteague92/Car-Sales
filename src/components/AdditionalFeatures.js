@@ -1,21 +1,28 @@
 import React from 'react';
 import AdditionalFeature from './AdditionalFeature';
+import { connect } from "react-redux";
 
-const AdditionalFeatures = props => {
+const AdditionalFeatures = ({ additionalFeat }) => {
   return (
     <div className="content">
       <h4>Additional Features</h4>
-      {props.additionalFeatures.length ? (
+      {additionalFeat.length ? (
         <ol type="1">
-          {props.additionalFeatures.map(item => (
+          {additionalFeat.map(item => (
             <AdditionalFeature key={item.id} feature={item} />
           ))}
         </ol>
       ) : (
-        <p>Nice looking car!</p>
-      )}
+          <p>Nice looking car!</p>
+        )}
     </div>
   );
 };
 
-export default AdditionalFeatures;
+const mapStateToProps = state => {
+  return {
+    additionalFeat: state.additionalFeatures,
+  };
+};
+
+export default connect(mapStateToProps, null)(AdditionalFeatures);
