@@ -33,11 +33,11 @@ const mapStateToProps = state => {
   };
 };
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     addFeat: () => dispatch({ type: "ADD_FEATURE" }),
-//     removeFeat: () => dispatch({ type: "REMOVE_FEATURE" })
-//   };
-// };
+const mapDispatchToProps = dispatch => {
+  return {
+    addFeat: () => dispatch({ type: "ADD_FEATURE" }),
+    removeFeat: () => dispatch({ type: "REMOVE_FEATURE" })
+  };
+};
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
